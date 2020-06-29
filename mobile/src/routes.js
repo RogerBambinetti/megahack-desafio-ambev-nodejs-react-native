@@ -1,26 +1,19 @@
 import React from 'react';
-import { StyleSheet, View, Text,TouchableOpacity } from 'react-native';
-import { createDrawerNavigator } from '@react-navigation/drawer';
-import { NavigationContainer } from '@react-navigation/native';
+import {createAppContainer, createSwitchNavigator} from 'react-navigation';
 
 import Home from './pages/Home';
 import Profile from './pages/Profile';
+import Scanner from './pages/Scanner';
+import Map from './pages/Map';
 
-export default function Routes() {
+const Routes = createAppContainer(
+    createSwitchNavigator({
+        Home,
+        Profile,
+        Scanner,
+        Map
+    })
+    
+);
 
-    const Drawer = createDrawerNavigator();
-    return (
-            <NavigationContainer>
-                <Drawer.Navigator initialRouteName="Home">
-                    <Drawer.Screen name="Início" component={Home} />
-                    <Drawer.Screen name="Perfil" component={Profile} />
-                </Drawer.Navigator>
-            </NavigationContainer>
-    )
-}
-
-const styles = StyleSheet.create({
-    header:{
-      padding: 10
-    }
-});
+export default Routes;
