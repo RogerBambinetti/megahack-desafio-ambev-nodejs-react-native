@@ -71,19 +71,19 @@ const styles = StyleSheet.create({
         margin: 25
     },
     score: {
-        fontSize: 20,
+        fontSize: 15,
         color: '#F2F2F2'
     },
     level: {
-        fontSize: 45,
+        fontSize: 25,
         color: '#F2F2F2',
     },
     points: {
-        fontSize: 40,
+        fontSize: 30,
         color: '#FFD04D',
     },
     divider: {
-        fontSize: 20,
+        fontSize: 15,
         color: '#CCCCCC',
         marginVertical: 15
     }

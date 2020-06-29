@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     itemText: {
-        fontSize: 16,
+        fontSize: 13,
         color: '#4D4D4D',
         marginHorizontal: 15
     }
