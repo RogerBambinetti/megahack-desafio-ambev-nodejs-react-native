@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, View, ScrollView, Text } from 'react-native';
-import { FontAwesome } from '@expo/vector-icons';
+import { FontAwesome5 } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 
 import ListItem from '../components/ListItem';
@@ -13,6 +13,18 @@ export default function Home({ navigation }) {
 
     function handleMapNavigation() {
         navigation.navigate('Map');
+    }
+
+    function handleTrophiesNavigation() {
+        navigation.navigate('Trophies');
+    }
+
+    function handleDiscountsNavigation() {
+        navigation.navigate('Discounts');
+    }
+
+    function handleLogout() {
+        navigation.navigate('Login');
     }
 
     return (
@@ -36,13 +48,13 @@ export default function Home({ navigation }) {
                     <ListItem icon='flag' text='Realizar desafio' />
                     <ListItem icon='question' text='Responder questionário' />
                     <Text style={styles.divider}>Conquistas</Text>
-                    <ListItem icon='trophy' text='Troféus' />
-                    <ListItem icon='tag' text='Descontos' />
+                    <ListItem icon='trophy' text='Troféus' function={handleTrophiesNavigation}/>
+                    <ListItem icon='tags' text='Descontos' function={handleDiscountsNavigation}/>
                     <Text style={styles.divider}>Estabelecimentos</Text>
-                    <ListItem icon='map-marker' text='Procurar estabelecimentos' function={handleMapNavigation} />
+                    <ListItem icon='map' text='Procurar estabelecimentos' function={handleMapNavigation} />
                     <Text style={styles.divider}>Conta</Text>
                     <ListItem icon='user' text='Editar perfil' />
-                    <ListItem icon='sign-out' text='Sair' />
+                    <ListItem icon='sign-out-alt' text='Sair' function={handleLogout}/>
                 </ScrollView>
             </View>
         </View>
@@ -93,12 +105,15 @@ const styles = StyleSheet.create({
     divider: {
         fontSize: 15,
         color: '#CCCCCC',
-        marginVertical: 15
+        marginVertical: 25,
+        paddingBottom: 10,
+        borderBottomWidth: 0.5,
+        borderBottomColor: '#CCCCCC'
     },
     fader:{
         position: 'absolute', 
         width: '100%', 
-        height: 70, 
+        height: 40, 
         zIndex: 5, 
         borderRadius: 25
     }

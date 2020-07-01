@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, View, Text} from 'react-native';
-import { FontAwesome } from '@expo/vector-icons';
+import { FontAwesome5 } from '@expo/vector-icons';
 
 export default function Profile() {
 

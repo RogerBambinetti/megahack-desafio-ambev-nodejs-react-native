@@ -1,13 +1,13 @@
 import React from 'react';
 import { StyleSheet, View, Text, TouchableOpacity} from 'react-native';
-import { FontAwesome } from '@expo/vector-icons';
+import { FontAwesome5 } from '@expo/vector-icons';
 
 export default function ListItem(props) {
 
     return (
         <TouchableOpacity style={styles.item} onPress={props.function}>
             <View style={styles.itemIcon}>
-                <FontAwesome name={props.icon} size={30} color="#008dd3" />
+                <FontAwesome5 name={props.icon} size={30} color="#008dd3" />
             </View>
             <Text style={styles.itemText}>{props.text}</Text>
         </TouchableOpacity>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, View, ScrollView, Text, TextInput, TouchableOpacity } from 'react-native';
-import { FontAwesome } from '@expo/vector-icons';
+import { FontAwesome5 } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 
 export default function Login({ navigation }) {
@@ -16,7 +16,7 @@ export default function Login({ navigation }) {
                 <TextInput style={styles.input} />
                 <Text style={styles.label}>Senha</Text>
                 <TextInput style={styles.input} />
-                <TouchableOpacity style={styles.button} onPress={handleLogin}><FontAwesome name='arrow-right' size={30} color="#F2F2F2" /></TouchableOpacity>
+                <TouchableOpacity style={styles.button} onPress={handleLogin}><FontAwesome5 name='arrow-right' size={30} color="#F2F2F2" /></TouchableOpacity>
             </View>
         </View>
     );
@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#FFF',
         borderWidth: 1.5,
         borderColor: '#ddd',
-        borderRadius: 25,
+        borderRadius: 10,
         paddingHorizontal: 20,
         marginVertical: 15
     },
@@ -48,8 +48,8 @@ const styles = StyleSheet.create({
         color: '#f6f2ee'
     },
     button: {
-        width: '100%',
-        height: 60,
+        width: 70,
+        height: 70,
         backgroundColor: '#fcd353',
         borderRadius: 35,
         alignItems: 'center',

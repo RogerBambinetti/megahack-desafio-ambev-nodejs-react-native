@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, View, TouchableOpacity } from 'react-native';
-import { FontAwesome } from '@expo/vector-icons';
+import { FontAwesome5 } from '@expo/vector-icons';
 import { BarCodeScanner } from 'expo-barcode-scanner';
 
 export default function Scanner({ navigation }) {
@@ -29,24 +29,24 @@ export default function Scanner({ navigation }) {
                 onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
                 style={styles.scanner}
             />
-            <View style={styles.container}>
-                <TouchableOpacity style={styles.button} onPress={handleHomeNavigation}><FontAwesome name='arrow-left' size={30} color="#F2F2F2" /></TouchableOpacity>
+            <View style={styles.buttonContainer}>
+                <TouchableOpacity style={styles.button} onPress={handleHomeNavigation}><FontAwesome5 name='arrow-left' size={30} color="#F2F2F2" /></TouchableOpacity>
             </View>
         </>
     );
 }
 
 const styles = StyleSheet.create({
-    container: {
+    buttonContainer: {
         position: 'absolute',
         bottom: 20,
         left: 20,
-        right: 20,
         zIndex: 5,
         flexDirection: 'row'
     },
     scanner: {
-        flex: 1
+        flex: 1,
+        backgroundColor: '#000'
     },
     button: {
         width: 70,

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, View, TouchableOpacity } from 'react-native';
-import { FontAwesome } from '@expo/vector-icons';
+import { StyleSheet, View, TouchableOpacity, Text } from 'react-native';
+import { FontAwesome5 } from '@expo/vector-icons';
 import MapView, { Marker, Callout } from 'react-native-maps';
 import { requestPermissionsAsync, getCurrentPositionAsync } from 'expo-location';
 
@@ -31,6 +31,10 @@ export default function Map({ navigation }) {
         navigation.navigate('Home');
     }
 
+    function handleStablishmentNavigation(){
+        navigation.navigate('Stablishment');
+    }
+
     if (!currentPosition) {
         return null;
     }
@@ -38,11 +42,19 @@ export default function Map({ navigation }) {
     return (
         <>
             <MapView style={styles.map} initialRegion={currentPosition}>
-                <Marker key={1} coordinate={{ latitude: currentPosition.latitude, longitude: currentPosition.longitude }} />
+                <Marker key={1} coordinate={{ latitude: currentPosition.latitude, longitude: currentPosition.longitude }}>
+                    <FontAwesome5 name='map-marker' size={35} color="#008dd3" />
+                    <Callout onPress={handleStablishmentNavigation}>
+                        <View style={styles.callout}>
+                            <Text style={styles.calloutTitle}>Bar</Text>
+                            <Text style={styles.calloutDescription}>uwsuwgusw suwguswguwsg uwsuwsswgu</Text>
+                        </View>
+                    </Callout>
+                </Marker>
             </MapView>
-            <View style={styles.container}>
+            <View style={styles.buttonContainer}>
                 <TouchableOpacity style={styles.button} onPress={handleHomeNavigation}>
-                    <FontAwesome name='arrow-left' size={30} color="#F2F2F2" />
+                    <FontAwesome5 name='arrow-left' size={30} color="#f6f2ee" />
                 </TouchableOpacity>
             </View>
         </>
@@ -51,11 +63,10 @@ export default function Map({ navigation }) {
 }
 
 const styles = StyleSheet.create({
-    container: {
+    buttonContainer: {
         position: 'absolute',
         bottom: 20,
         left: 20,
-        right: 20,
         zIndex: 5,
         flexDirection: 'row'
     },
@@ -70,5 +81,19 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         marginTop: 10
+    },
+    callout:{
+        width: 260,
+        height: 150,
+        borderRadius: 10,
+        padding: 5
+    },
+    calloutTitle:{
+        fontSize: 15,
+        color: '#CCCCCC'
+    },
+    calloutDescription:{
+        fontSize: 13,
+        color: '#4D4D4D'
     }
 });
