@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, View, ScrollView, Text, TouchableOpacity } from 'react-native';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
+import { QRCode } from 'react-native-custom-qr-codes-expo';
 
 import ListItem from '../components/ListItem';
 
@@ -15,7 +16,7 @@ export default function Discounts({ navigation }) {
         <View style={styles.container}>
             <View style={styles.top}>
                 <View style={styles.discount}>
-                  
+                    <QRCode content='teste' color='#4D4D4D' size={200}/>
                 </View>
             </View>
 
@@ -62,8 +63,9 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         width: 200,
         height: 200,
-        borderRadius: 100,
-        margin: 25
+        borderRadius: 10,
+        margin: 25,
+        backgroundColor: 'white'
     },
     divider: {
         fontSize: 15,
