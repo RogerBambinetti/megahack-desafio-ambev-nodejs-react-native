@@ -9,6 +9,7 @@ module.exports = {
         allowNull: false,
         autoIncrement: true,
       },
+      
       establishment_id:{
         type: Sequelize.INTEGER,
         references: {
@@ -49,6 +50,6 @@ module.exports = {
   },
 
   down: async (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('employees');
+    return queryInterface.dropTable('employeess');
   }
 };

@@ -1,4 +1,4 @@
-const Sequelize, { Model } = require('sequelize');
+const  { Sequelize,Model } = require('sequelize');
 
 class ClientTrophies extends Model {
     static init(sequelize) {

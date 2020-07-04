@@ -4,7 +4,7 @@ const path = require('path');
 const http = require('http');
 
 const routes = require('./routes');
-
+require('./database');
 
 const app = express();
 const server = http.Server(app);

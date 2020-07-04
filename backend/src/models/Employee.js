@@ -1,19 +1,24 @@
 const  {Sequelize, Model } = require('sequelize');
 
-class Challenge extends Model {
+class Employee extends Model {
     static init(sequelize) {
         super.init({
-            description: Sequelize.STRING,
-            points: Sequelize.INTEGER,
+            name: Sequelize.STRING,
+            cpf: Sequelize.STRING,
+            email: Sequelize.STRING,
+            password: Sequelize.STRING,
         }, {
-            sequelize
+            sequelize,
+            tableName: 'employees',
         });
         return this;
     }
+
     static associate(models){
-        this.belongsTo(models.Client, {foreignKey: 'client_id', as: 'client'});
         this.belongsTo(models.Establishment, {foreignKey: 'establishment_id', as: 'establishment'});
+        
     }
+
 }
 
-module.exports = Challenge;
+module.exports = Employee;
