@@ -43,7 +43,7 @@ export default function Map({ navigation }) {
         <>
             <MapView style={styles.map} initialRegion={currentPosition}>
                 <Marker key={1} coordinate={{ latitude: currentPosition.latitude, longitude: currentPosition.longitude }}>
-                    <FontAwesome5 name='map-marker' size={35} color="#008dd3" />
+                    <FontAwesome5 name='map-marker' size={35} color="#fcd353" />
                     <Callout onPress={handleStablishmentNavigation}>
                         <View style={styles.callout}>
                             <Text style={styles.calloutTitle}>Bar</Text>
