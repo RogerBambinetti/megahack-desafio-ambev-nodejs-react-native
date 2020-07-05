@@ -1,8 +1,8 @@
 const Sequelize = require ('sequelize');
 const dbconfig = require('../config/database');
 const Client = require('../models/Client');
-const ClientTrophies = require('../models/ClientTrophies');
 const Trophy = require('../models/Trophy');
+const ClientTrophies = require('../models/ClientTrophies');
 const Differential = require('../models/Differential');
 const Establishment = require('../models/Establishment');
 const Employee = require('../models/Employee');

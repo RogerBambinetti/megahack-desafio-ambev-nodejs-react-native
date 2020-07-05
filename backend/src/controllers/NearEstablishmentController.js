@@ -1,5 +1,5 @@
 const Establishment = require('../models/Establishment');
-const {getDistance} = require('geolib');
+const { getDistance } = require('geolib');
 
 class NearEstablishmentController {
     async index(req, res) {
@@ -10,12 +10,12 @@ class NearEstablishmentController {
         const nearEstablishmentsVerification = establishments.map(establishment => {
             const distance = getDistance(
                 { latidude: establishment.latidude, longitude: establishment.longitude },
-                {latidude,longitude}
+                { latidude, longitude }
             );
-            if(distance <= 500) {
+            if (distance <= 500) {
                 return establishment;
             }
-            
+
             return null;
         });
 

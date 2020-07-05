@@ -10,8 +10,8 @@ class ClientController {
             }
         });
 
-        if(checkEmail){
-            return res.status(400).json({ error: 'Email já utilizado'});
+        if (checkEmail) {
+            return res.status(400).json({ error: 'Email já utilizado' });
         }
 
         const client = await Client.create({
@@ -21,26 +21,22 @@ class ClientController {
             birthday
         });
         
-        const trophies = await Trophy.findAll();
-
-        trophies.map(trophy=>{
-            client.addTrophy(trophy);
-        });
+        
 
         return res.json(client);
     }
 
-    async show(req,res){
-        const {client_id} = req.params;
-        
+    async show(req, res) {
+        const { client_id } = req.params;
+
         const client = await Client.findOne({
             where: {
                 id: client_id,
             }
         });
 
-        if(!client){
-            return res.status(401).json({error: 'Cliente não encontrado'});
+        if (!client) {
+            return res.status(401).json({ error: 'Cliente não encontrado' });
         }
 
         return res.json(client);
