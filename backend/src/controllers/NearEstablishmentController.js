@@ -1,17 +1,21 @@
 const Establishment = require('../models/Establishment');
-const { getDistance } = require('geolib');
+const { Distance } = require('geo-distance');
 
 class NearEstablishmentController {
     async index(req, res) {
         const { latitude, longitude } = req.body;
-
+        const clientLocation = {
+            lat: latitude,
+            lon: longitude,
+        }
         const establishments = await Establishment.findAll();
 
         const nearEstablishmentsVerification = establishments.map(establishment => {
-            const distance = getDistance(
-                { latidude: establishment.dataValues.latitude, longitude: establishment.dataValues.longitude },
-                {latitude,longitude}
-            );
+            const establishmentLocation = {
+                lat: establishment.dataValues.latitude,
+                lon: establishment.dataValues.longitude
+            }
+            const distance = Distance.between(clientLocation,establishmentLocation);
 
             if(distance <= 500) {
                 return establishment;
