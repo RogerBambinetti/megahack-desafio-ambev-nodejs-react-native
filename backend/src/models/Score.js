@@ -1,4 +1,4 @@
-const Sequelize, { Model } = require('sequelize');
+const { Sequelize, Model } = require('sequelize');
 
 class Score extends Model {
     static init(sequelize) {
@@ -10,9 +10,9 @@ class Score extends Model {
         return this;
     }
 
-    static associate(models){
-        this.belongsTo(models.Client, {foreignKey: 'client_id', as: 'client'});
-        this.belongsTo(models.Establishment, {foreignKey: 'establishment_id', as: 'establishment'});
+    static associate(models) {
+        this.belongsTo(models.Client, { foreignKey: 'client_id', as: 'client' });
+        this.belongsTo(models.Establishment, { foreignKey: 'establishment_id', as: 'establishment' });
     }
 
 }

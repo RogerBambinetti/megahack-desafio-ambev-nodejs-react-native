@@ -1,4 +1,5 @@
 const Client = require('../models/Client');
+const Trophy = require('../models/Trophy');
 
 class ClientController {
     async create(req, res) {
@@ -18,6 +19,12 @@ class ClientController {
             email,
             password,
             birthday
+        });
+        
+        const trophies = await Trophy.findAll();
+
+        trophies.map(trophy=>{
+            client.addTrophy(trophy);
         });
 
         return res.json(client);

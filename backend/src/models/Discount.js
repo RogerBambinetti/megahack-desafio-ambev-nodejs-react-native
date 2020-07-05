@@ -1,4 +1,4 @@
-const Sequelize, { Model } = require('sequelize');
+const  { Sequelize,Model } = require('sequelize');
 
 class Discount extends Model {
     static init(sequelize) {

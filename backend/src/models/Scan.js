@@ -1,4 +1,4 @@
-const Sequelize, { Model } = require('sequelize');
+const { Sequelize, Model } = require('sequelize');
 
 class Scan extends Model {
     static init(sequelize) {
@@ -10,9 +10,9 @@ class Scan extends Model {
         return this;
     }
 
-    static associate(models){
-        this.belongsTo(models.Client, {foreignKey: 'client_id', as: 'clients'});
-        this.belongsTo(models.Product, {foreignKey: 'product_id', as: 'products'});
+    static associate(models) {
+        this.belongsTo(models.Client, { foreignKey: 'client_id', as: 'clients' });
+        this.belongsTo(models.Product, { foreignKey: 'product_id', as: 'products' });
     }
 
 }
