@@ -5,7 +5,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 
 import ListItem from '../components/ListItem';
 
-export default function Stablishment({ navigation }) {
+export default function Establishment({ navigation }) {
 
     function handleMapNavigation() {
         navigation.navigate('Map');

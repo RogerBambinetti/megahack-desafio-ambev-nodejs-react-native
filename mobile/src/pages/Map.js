@@ -3,10 +3,20 @@ import { StyleSheet, View, TouchableOpacity, Text } from 'react-native';
 import { FontAwesome5 } from '@expo/vector-icons';
 import MapView, { Marker, Callout } from 'react-native-maps';
 import { requestPermissionsAsync, getCurrentPositionAsync } from 'expo-location';
+import api from '../services/api';
 
 export default function Map({ navigation }) {
 
     const [currentPosition, setCurrentPosition] = useState(null);
+    const [establishments, setEstablishments] = useState([]);
+
+    useEffect(() => {
+        async function loadEstablishments() {
+            const response = await api.get('establishments');
+            setEstablishments(response.data);
+        }
+        loadEstablishments();
+    }, [])
 
     useEffect(() => {
         async function loadInitialLocation() {
@@ -31,7 +41,7 @@ export default function Map({ navigation }) {
         navigation.navigate('Home');
     }
 
-    function handleStablishmentNavigation(){
+    function handleStablishmentNavigation() {
         navigation.navigate('Stablishment');
     }
 
@@ -42,15 +52,20 @@ export default function Map({ navigation }) {
     return (
         <>
             <MapView style={styles.map} initialRegion={currentPosition}>
-                <Marker key={1} coordinate={{ latitude: currentPosition.latitude, longitude: currentPosition.longitude }}>
+                <Marker key={0} coordinate={{ latitude: currentPosition.latitude, longitude: currentPosition.longitude }}>
                     <FontAwesome5 name='map-marker' size={35} color="#fcd353" />
-                    <Callout onPress={handleStablishmentNavigation}>
-                        <View style={styles.callout}>
-                            <Text style={styles.calloutTitle}>Bar</Text>
-                            <Text style={styles.calloutDescription}>uwsuwgusw suwguswguwsg uwsuwsswgu</Text>
-                        </View>
-                    </Callout>
                 </Marker>
+                {establishments.map(establishment => (
+                    <Marker key={establishment.id} coordinate={{ latitude: establishment.latitude, longitude: establishment.longitude }}>
+                        <FontAwesome5 name='map-marker' size={35} color="#008dd3" />
+                        <Callout onPress={handleStablishmentNavigation}>
+                            <View style={styles.callout}>
+                                <Text style={styles.calloutTitle}>{establishment.name}</Text>
+                                <Text style={styles.calloutDescription}>Toque para saber mais sobre este estabelecimento</Text>
+                            </View>
+                        </Callout>
+                    </Marker>
+                ))}
             </MapView>
             <View style={styles.buttonContainer}>
                 <TouchableOpacity style={styles.button} onPress={handleHomeNavigation}>
@@ -82,17 +97,16 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         marginTop: 10
     },
-    callout:{
+    callout: {
         width: 260,
-        height: 150,
         borderRadius: 10,
         padding: 5
     },
-    calloutTitle:{
+    calloutTitle: {
         fontSize: 15,
         color: '#CCCCCC'
     },
-    calloutDescription:{
+    calloutDescription: {
         fontSize: 13,
         color: '#4D4D4D'
     }
