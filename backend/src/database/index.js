@@ -6,8 +6,9 @@ const Differential = require('../models/Differential');
 const Establishment = require('../models/Establishment');
 const Employee = require('../models/Employee');
 const Challenge = require('../models/Challenge');
+const Scan = require('../models/Scan');
 
-const models = [Client,Trophy,Establishment,Differential,Employee,Challenge];
+const models = [Client,Trophy,Establishment,Differential,Employee,Challenge,Scan];
 
 
 class Database{
