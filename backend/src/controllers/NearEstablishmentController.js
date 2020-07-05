@@ -15,9 +15,9 @@ class NearEstablishmentController {
                 lat: establishment.dataValues.latitude,
                 lon: establishment.dataValues.longitude
             }
-            const distance = Distance.between(clientLocation,establishmentLocation);
+            const distance = Distance.between(clientLocation, establishmentLocation);
 
-            if(distance <= 500) {
+            if (distance <= 500) {
                 return establishment;
             }
 
