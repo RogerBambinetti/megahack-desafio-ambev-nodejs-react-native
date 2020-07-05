@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, View, TouchableOpacity, Text } from 'react-native';
+import { StyleSheet, View, TouchableOpacity, Text, TextInput } from 'react-native';
 import { FontAwesome5 } from '@expo/vector-icons';
 import MapView, { Marker, Callout } from 'react-native-maps';
 import { requestPermissionsAsync, getCurrentPositionAsync } from 'expo-location';
@@ -67,6 +67,12 @@ export default function Map({ navigation }) {
                     </Marker>
                 ))}
             </MapView>
+            <View style={styles.searchForm}>
+                <TextInput style={styles.searchInput} placeholder="Procure estabelecimentos..." placeholderTextColor="#999" />
+                <TouchableOpacity style={styles.searchButton}>
+                <FontAwesome5 name='search' size={20} color="#f6f2ee" />
+                </TouchableOpacity>
+            </View>
             <View style={styles.buttonContainer}>
                 <TouchableOpacity style={styles.button} onPress={handleHomeNavigation}>
                     <FontAwesome5 name='arrow-left' size={30} color="#f6f2ee" />
@@ -109,5 +115,34 @@ const styles = StyleSheet.create({
     calloutDescription: {
         fontSize: 13,
         color: '#4D4D4D'
+    },
+    searchForm: {
+        position: 'absolute',
+        top: 20,
+        left: 20,
+        right: 20,
+        zIndex: 5,
+        flexDirection: 'row',
+        alignItems: 'center'
+    },
+    searchInput: {
+        flex: 1,
+        height: 50,
+        backgroundColor: "#FFF",
+        color: "#333",
+        borderWidth: 1.5,
+        borderColor: '#ddd',
+        borderRadius: 10,
+        paddingHorizontal: 20,
+        marginVertical: 15
+    },
+    searchButton: {
+        height: 50,
+        width: 50,
+        borderRadius: 25,
+        backgroundColor: "#008dd3",
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginLeft: 5
     }
 });
