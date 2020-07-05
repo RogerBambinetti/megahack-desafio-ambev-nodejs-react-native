@@ -8,7 +8,7 @@ import Map from './pages/Map';
 import Login from './pages/Login';
 import Trophies from './pages/Trophies';
 import Discounts from './pages/Discounts';
-import Challanges from './pages/Challenges';
+import Challenges from './pages/Challenges';
 import Stablishment from './pages/Stablishment';
 
 const Routes = createAppContainer(
@@ -20,7 +20,8 @@ const Routes = createAppContainer(
         Map,
         Trophies,
         Discounts,
-        Stablishment
+        Stablishment,
+        Challenges
     })
     
 );

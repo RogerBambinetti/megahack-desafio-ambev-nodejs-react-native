@@ -28,8 +28,8 @@ export default function Challenges({ navigation }) {
                 />
                 <ScrollView style={styles.bottom}>
                     <Text style={styles.divider}>Desafios</Text>
-                    <ListItem icon='tag' text='20% de desconto em qualquer cerveja' />
-                    <ListItem icon='tag' text='5% de desconto em  um suco' />
+                    <ListItem icon='flag' text='20% de desconto em qualquer cerveja' />
+                    <ListItem icon='flag' text='5% de desconto em  um suco' />
                 </ScrollView>
             </View>
             <View style={styles.buttonContainer}>

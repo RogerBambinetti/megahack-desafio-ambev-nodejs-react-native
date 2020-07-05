@@ -23,6 +23,10 @@ export default function Home({ navigation }) {
         navigation.navigate('Discounts');
     }
 
+    function handleChallengeNavigation() {
+        navigation.navigate('Challenges');
+    }
+
     function handleLogout() {
         navigation.navigate('Login');
     }
@@ -45,7 +49,7 @@ export default function Home({ navigation }) {
                 <ScrollView style={styles.bottom}>
                     <Text style={styles.divider}>Ganhe mais pontos</Text>
                     <ListItem icon='qrcode' text='Scanear produto' function={handleScannerNavigation} />
-                    <ListItem icon='flag' text='Realizar desafio' />
+                    <ListItem icon='flag' text='Realizar desafio' function={handleChallengeNavigation}/>
                     <ListItem icon='question' text='Responder questionário' />
                     <Text style={styles.divider}>Conquistas</Text>
                     <ListItem icon='trophy' text='Troféus' function={handleTrophiesNavigation}/>
