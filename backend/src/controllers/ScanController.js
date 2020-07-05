@@ -2,12 +2,17 @@ const Establishment = require('../models/Establishment');
 const Product = require('../models/Product');
 const Scan = require('../models/Scan');
 const Score = require('../models/Score');
-const { getDistance } = require('geolib');
+const Distance = require('geo-distance');
 
 class ScanController {
     async create(req, res) {
         const { scanCode, latitude, longitude } = req.body;
         const { client_id } = req.params;
+
+        const clientLocation = {
+            lat: latitude,
+            lon: longitude,
+        }
 
         const codeArray = scanCode.split(':');
 
@@ -19,10 +24,20 @@ class ScanController {
         let nearEstablishmentDistance = 99999999;
         let nearEstablishment = null;
         establishments.forEach(establishment => {
-            const distance = getDistance(
-                { latidude: establishment.latidude, longitude: establishment.longitude },
-                { latidude, longitude }
-            );
+            const establishmentLocation = {
+                lat: establishment.dataValues.latitude,
+                lon: establishment.dataValues.longitude
+            }
+
+            let distanceCount = Distance.between(clientLocation, establishmentLocation);
+            let distance = distanceCount.human_readable().distance;
+            if (distanceCount.human_readable().unit === 'km') {
+                distance *= 1000;
+                if (distance <= nearEstablishmentDistance) {
+                    nearEstablishmentDistance = distance;
+                    nearEstablishment = establishment;
+                }
+            }
 
             if (distance <= nearEstablishmentDistance) {
                 nearEstablishmentDistance = distance;

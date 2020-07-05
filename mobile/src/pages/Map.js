@@ -41,8 +41,8 @@ export default function Map({ navigation }) {
         navigation.navigate('Home');
     }
 
-    function handleStablishmentNavigation() {
-        navigation.navigate('Stablishment');
+    function handleEstablishmentNavigation() {
+        navigation.navigate('Establishment');
     }
 
     if (!currentPosition) {
@@ -58,7 +58,7 @@ export default function Map({ navigation }) {
                 {establishments.map(establishment => (
                     <Marker key={establishment.id} coordinate={{ latitude: establishment.latitude, longitude: establishment.longitude }}>
                         <FontAwesome5 name='map-marker' size={35} color="#008dd3" />
-                        <Callout onPress={handleStablishmentNavigation}>
+                        <Callout onPress={handleEstablishmentNavigation}>
                             <View style={styles.callout}>
                                 <Text style={styles.calloutTitle}>{establishment.name}</Text>
                                 <Text style={styles.calloutDescription}>Toque para saber mais sobre este estabelecimento</Text>

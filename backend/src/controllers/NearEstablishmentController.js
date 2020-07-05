@@ -1,5 +1,5 @@
 const Establishment = require('../models/Establishment');
-const { Distance } = require('geo-distance');
+const Distance = require('geo-distance');
 
 class NearEstablishmentController {
     async index(req, res) {
@@ -15,9 +15,17 @@ class NearEstablishmentController {
                 lat: establishment.dataValues.latitude,
                 lon: establishment.dataValues.longitude
             }
-            const distance = Distance.between(clientLocation, establishmentLocation);
+            let distanceCount = Distance.between(clientLocation, establishmentLocation);
+            let distance = distanceCount.human_readable().distance;
+            if (distanceCount.human_readable().unit === 'km') {
+                distance *= 1000;
+                if (distance <= 600) {
+                    return establishment;
+                }
+                return null;
+            }
 
-            if (distance <= 500) {
+            if (distance <= 600) {
                 return establishment;
             }
 
