@@ -16,8 +16,8 @@ class ScanController {
 
         const codeArray = scanCode.split(':');
 
-        const product_id = codeArray(0);
-        const code = codeArray(1);
+        const product_id = codeArray[0];
+        const code = codeArray[1];
 
         const establishments = await Establishment.findAll();
 
@@ -64,14 +64,15 @@ class ScanController {
             client_id,
             code
         });
-
         const [score, created] = await Score.findOrCreate({
-            where: client_id,
-            establishment_id: nearEstablishment.establishment_id,
-            default: {
+            where: {
+                client_id,
+                establishment_id: nearEstablishment.dataValues.id,
+            },
+            defaults: {
                 score: 0,
                 client_id,
-                establishment_id: nearEstablishment.establishment_id,
+                establishment_id: nearEstablishment.dataValues.id,
             }
         });
 
