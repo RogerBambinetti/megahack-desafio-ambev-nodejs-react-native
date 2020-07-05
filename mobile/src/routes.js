@@ -9,7 +9,7 @@ import Login from './pages/Login';
 import Trophies from './pages/Trophies';
 import Discounts from './pages/Discounts';
 import Challenges from './pages/Challenges';
-import Stablishment from './pages/Stablishment';
+import Establishment from './pages/Establishment';
 
 const Routes = createAppContainer(
     createSwitchNavigator({
@@ -20,7 +20,7 @@ const Routes = createAppContainer(
         Map,
         Trophies,
         Discounts,
-        Stablishment,
+        Establishment,
         Challenges
     })
     
