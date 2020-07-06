@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, View, ScrollView, Text, TouchableOpacity } from 'react-native';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
@@ -8,6 +8,8 @@ import ListItem from '../components/ListItem';
 
 export default function Discounts({ navigation }) {
 
+    const [code, setCode] = useState(null);
+
     function handleHomeNavigation() {
         navigation.navigate('Home');
     }
@@ -16,7 +18,9 @@ export default function Discounts({ navigation }) {
         <View style={styles.container}>
             <View style={styles.top}>
                 <View style={styles.discount}>
-                    <QRCode content='teste' color='#4D4D4D' size={200}/>
+                    {code &&
+                        <QRCode content={code} color='#4D4D4D' size={200} />
+                    }
                 </View>
             </View>
 
@@ -28,8 +32,8 @@ export default function Discounts({ navigation }) {
                 />
                 <ScrollView style={styles.bottom}>
                     <Text style={styles.divider}>Descontos</Text>
-                    <ListItem icon='tag' text='20% de desconto em qualquer cerveja' />
-                    <ListItem icon='tag' text='5% de desconto em  um suco' />
+                    <ListItem icon='tag' text='10% de desconto em qualquer cerveja da Skol lata (Custo de 200 pontos)' function={() => setCode('123:AEIO')} />
+                    <ListItem icon='tag' text='5% de desconto em qualquer Guaraná Antárctica (Custo 100 pontos)' function={() => setCode('356:AEIO')}/>
                 </ScrollView>
             </View>
             <View style={styles.buttonContainer}>

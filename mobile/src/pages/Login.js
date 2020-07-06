@@ -18,7 +18,7 @@ export default function Login({ navigation }) {
                 <Text style={styles.label}>Usuário</Text>
                 <TextInput style={styles.input} />
                 <Text style={styles.label}>Senha</Text>
-                <TextInput style={styles.input} />
+                <TextInput style={styles.input} secureTextEntry={true} />
                 <TouchableOpacity style={styles.button} onPress={handleLogin}><FontAwesome5 name='arrow-right' size={30} color="#F2F2F2" /></TouchableOpacity>
             </View>
         </View>

@@ -37,6 +37,7 @@ export default function Home({ navigation }) {
                 <View style={styles.circle}>
                     <Text style={styles.score}>Você possui</Text>
                     <Text style={styles.points}>135 pontos</Text>
+                    <Text style={styles.score}>em "Baiuca's"</Text>
                 </View>
             </View>
 

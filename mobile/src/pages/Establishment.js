@@ -1,9 +1,15 @@
 import React from 'react';
-import { StyleSheet, View, ScrollView, Text, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, ScrollView, Text, TouchableOpacity, Image } from 'react-native';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 
 import ListItem from '../components/ListItem';
+
+import Picture from '../assets/baiucas.jpg';
+
+import Profile1 from '../assets/profile1.png';
+import Profile2 from '../assets/profile2.png';
+import Profile3 from '../assets/profile3.png';
 
 export default function Establishment({ navigation }) {
 
@@ -14,8 +20,8 @@ export default function Establishment({ navigation }) {
     return (
         <View style={styles.container}>
             <View style={styles.top}>
-                <View style={styles.picture}>
-
+                <View style={styles.pictureContainer}>
+                    <Image source={Picture} style={styles.picture} />
                 </View>
             </View>
 
@@ -26,27 +32,35 @@ export default function Establishment({ navigation }) {
                     pointerEvents={'none'}
                 />
                 <ScrollView style={styles.bottom}>
+                    <Text style={styles.divider}>Avaliação de "Baiuca's"</Text>
+                    <View style={styles.evaluationContainer}>
+                        <FontAwesome5 name='star' size={30} color="#fcd353" style={styles.evaluationIcon}/>
+                        <FontAwesome5 name='star' size={30} color="#fcd353" style={styles.evaluationIcon}/>
+                        <FontAwesome5 name='star' size={30} color="#fcd353" style={styles.evaluationIcon}/>
+                        <FontAwesome5 name='star' size={30} color="#CCCCCC" style={styles.evaluationIcon}/>
+                        <FontAwesome5 name='star' size={30} color="#CCCCCC" style={styles.evaluationIcon}/>
+                    </View>
                     <Text style={styles.divider}>Ranking</Text>
                     <View style={styles.rankingContainer}>
                         <View style={styles.rankingItem}>
-                            <Text style={styles.rankingPosition}>#1</Text>
-                            <View style={styles.rankingPicture}></View>
-                            <Text style={styles.rankingName}>Zé do bar</Text>
+                            <Text style={styles.rankingPosition}>1</Text>
+                            <Image source={Profile1} style={styles.rankingPicture} />
+                            <Text style={styles.rankingName}>Caleb Brito</Text>
                         </View>
                         <View style={styles.rankingItem}>
-                        <Text style={styles.rankingPosition}>#2</Text>
-                            <View style={styles.rankingPicture}></View>
-                            <Text style={styles.rankingName}>zé do bar</Text>
+                            <Text style={styles.rankingPosition}>2</Text>
+                            <Image source={Profile3} style={styles.rankingPicture} />
+                            <Text style={styles.rankingName}>Isa Moraes</Text>
                         </View>
                         <View style={styles.rankingItem}>
-                        <Text style={styles.rankingPosition}>#3</Text>
-                            <View style={styles.rankingPicture}></View>
-                            <Text style={styles.rankingName}>Zé do bar</Text>
+                            <Text style={styles.rankingPosition}>3</Text>
+                            <Image source={Profile2} style={styles.rankingPicture} />
+                            <Text style={styles.rankingName}>Nathan Breno</Text>
                         </View>
                     </View>
                     <ListItem icon='eye' text='Ver ranking completo' />
                     <Text style={styles.divider}>Diferenciais</Text>
-                    <ListItem icon='music' text='Karaoke' />
+                    <ListItem icon='music' text='Karaokê' />
                     <ListItem icon='bowling-ball' text='Boliche' />
                     <ListItem icon='tv' text='TV' />
                 </ScrollView>
@@ -77,14 +91,20 @@ const styles = StyleSheet.create({
         borderTopLeftRadius: 25,
         paddingHorizontal: 25,
     },
-    picture: {
+    pictureContainer: {
         alignItems: 'center',
         justifyContent: 'center',
-        width: 200,
+        width: '100%',
         height: 200,
         borderRadius: 10,
         margin: 25,
-        backgroundColor: 'white'
+        backgroundColor: 'white',
+        overflow: 'hidden'
+    },
+    picture: {
+        width: 400,
+        resizeMode: 'contain',
+        alignSelf: 'center'
     },
     divider: {
         fontSize: 15,
@@ -126,17 +146,26 @@ const styles = StyleSheet.create({
         width: 110,
         height: 110,
         borderRadius: 10,
-        backgroundColor: '#CCCCCC'
+        backgroundColor: '#CCCCCC',
+        marginBottom: 5,
     },
-    rankingItem:{
+    rankingItem: {
         alignItems: 'center'
     },
-    rankingName:{
+    rankingName: {
         fontSize: 13,
         color: '#4D4D4D',
     },
-    rankingPosition:{
+    rankingPosition: {
         fontSize: 20,
-        color: '#fcd353',
+        color: '#008dd3',
+        fontWeight: 'bold'
+    },
+    evaluationContainer:{
+        flexDirection: 'row',
+        justifyContent:'space-around',
+    },
+    evaluationIcon:{
+
     }
 });

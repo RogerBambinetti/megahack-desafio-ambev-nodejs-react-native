@@ -1,9 +1,13 @@
 import React from 'react';
-import { StyleSheet, View, ScrollView, Text, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, ScrollView, Text, TouchableOpacity,Image } from 'react-native';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 
 import ListItem from '../components/ListItem';
+
+import Trophy1 from '../assets/trophy1.png';
+import Trophy2 from '../assets/trophy2.png';
+import Trophy3 from '../assets/trophy3.png';
 
 export default function Home({ navigation }) {
 
@@ -14,8 +18,8 @@ export default function Home({ navigation }) {
     return (
         <View style={styles.container}>
             <View style={styles.top}>
-                <View style={styles.trophy}>
-                  
+                <View style={styles.trophyContainer}>
+                  <Image source={Trophy2} style={styles.trophy}/>
                 </View>
             </View>
 
@@ -63,10 +67,20 @@ const styles = StyleSheet.create({
     trophy: {
         alignItems: 'center',
         justifyContent: 'center',
+        width: 150,
+        height: 150,
+        borderRadius: 100,
+        margin: 25
+    },
+    trophyContainer: {
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: '#F2F2F2',
         width: 200,
         height: 200,
         borderRadius: 100,
-        margin: 25
+        margin: 25,
+        
     },
     divider: {
         fontSize: 15,
