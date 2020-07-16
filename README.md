@@ -5,7 +5,7 @@
 		src="https://github.com/RogerBambinetti/tindev-nodejs-reactjs-react-native/blob/master/preview/logo.png">
 </h1>
 <h3 align="center">
-	Be The Hero - NodeJS - ReactJS - React Native
+	Desafio Ambev - NodeJS - ReactJS - React Native
 </h3>
 
 <p align="center">
