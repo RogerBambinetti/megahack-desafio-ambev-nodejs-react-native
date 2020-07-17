@@ -16,11 +16,11 @@
 
 ## Visão geral
 
-**Este projeto, embasado em videoaulas disponibilizadas pela [RocketSeat](https://github.com/Rocketseat), foi desenvolvido para fins de aprendizagem.** 4 telas estão disponíveis, divididas entre o sistema web e mobile.
+**Este projeto é fruto do desafio proposto pela Ambev na 3ª edição do Mega Hack.** 5 telas estão disponíveis, divididas entre o sistema web e mobile.
 
 ## Telas
 
-O projeto possui uma versão mobile, mas o layout responsivo da aplicação web também adequa-se a dispositivos móveis.
+O projeto possui apenas versão mobile.
 
 <p align="center">
 <img
