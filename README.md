@@ -8,12 +8,6 @@
 	Desafio Ambev - NodeJS - ReactJS - React Native
 </h3>
 
-<p align="center">
-<img
-		width="700"
-		src="https://github.com/RogerBambinetti/tindev-nodejs-reactjs-react-native/blob/master/preview/Screenshot0.png">
-</p>
-
 ## Visão geral
 
 **Este projeto é fruto do desafio proposto pela Ambev na 3ª edição do Mega Hack.** 5 telas estão disponíveis, divididas entre o sistema web e mobile.
