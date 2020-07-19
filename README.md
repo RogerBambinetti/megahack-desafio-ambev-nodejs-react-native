@@ -14,7 +14,7 @@
 
 ## Telas
 
-O projeto possui apenas versão mobile.
+O projeto está disponível na versão mobile.
 
 <p align="center">
 <img
