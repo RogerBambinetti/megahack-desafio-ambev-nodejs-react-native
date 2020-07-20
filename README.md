@@ -10,7 +10,7 @@
 
 ## Visão geral
 
-**Este projeto é fruto do desafio proposto pela Ambev na 3ª edição do Mega Hack.** 5 telas estão disponíveis, divididas entre o sistema web e mobile.
+**Este projeto é fruto do desafio proposto pela Ambev na 3ª edição do Mega Hack.** x telas estão disponíveis, divididas entre o sistema web e mobile.
 
 ## Telas
 
