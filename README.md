@@ -2,7 +2,7 @@
 <h1 align="center">
 <img
 		width="200"
-		src="https://github.com/RogerBambinetti/tindev-nodejs-reactjs-react-native/blob/master/preview/logo.png">
+		src="https://github.com/RogerBambinetti/megahack-desafio-ambev-nodejs-react-native/blob/master/preview/logo.png">
 </h1>
 <h3 align="center">
 	Desafio Ambev - NodeJS - ReactJS - React Native
