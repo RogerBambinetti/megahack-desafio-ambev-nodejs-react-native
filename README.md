@@ -17,6 +17,7 @@
 O projeto está disponível em sua versão mobile.
 
 <p align="center">
+
 <img
 		width="350"
 		src="">
