@@ -21,7 +21,6 @@ O projeto está disponível em sua versão mobile.
 <img
 		width="350"
 		src="">
-
 </p>
 
 ## Contribuidores
